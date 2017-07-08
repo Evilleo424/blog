@@ -24,7 +24,7 @@ class TopicController extends Controller{
 
     public function store(){
         $this->validate(request(),[
-            'name'  => 'required|string|min:3',
+            'name'  => 'required|string|min:2',
         ]);
 
         Topic::create(['name' => request('name')]);
