@@ -15,7 +15,8 @@ Route::get('/', 'PostController@index');
 
 //文章列表页
 Route::get('/posts', 'PostController@index');
-
+//详情页
+Route::get("/posts/{post}", 'PostController@show');
 
     Route::get('excel/export', 'ExcelController@export');
     Route::get('excel/import', 'ExcelController@import');
@@ -25,8 +26,7 @@ Route::get('/posts', 'PostController@index');
     Route::group(['prefix' => 'posts','middleware' => 'before'], function () {
         //创建
         Route::get('/create', 'PostController@create');
-        //详情页
-        Route::get("/{post}", 'PostController@show');
+        
         //保存
         Route::post('/', 'PostController@store');
         //编辑
