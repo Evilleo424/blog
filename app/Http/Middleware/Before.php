@@ -18,7 +18,7 @@ class Before
 		if(\Auth::check()){
 			return $next($request);
 		}else{
-			return redirect('/admin/login');
+			return redirect('/login');
 		}
 
 	}
