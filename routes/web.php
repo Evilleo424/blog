@@ -25,8 +25,11 @@ Route::get('/posts', 'PostController@index');
     Route::group(['prefix' => 'posts','middleware' => 'before'], function () {
         //创建
         Route::get('/create', 'PostController@create');
-        //详情页
-	Route::get("/{post}", 'PostController@show');
+    });
+	//详情页
+	Route::get("/posts/{post}", 'PostController@show');
+
+    Route::group(['prefix' => 'posts','middleware' => 'before'], function () {
         //保存
         Route::post('/', 'PostController@store');
         //编辑
